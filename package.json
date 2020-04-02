@@ -22,9 +22,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist/links.jsx"
-  ],
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch",

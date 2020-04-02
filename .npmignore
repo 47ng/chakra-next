@@ -1,9 +1,11 @@
 **/*.test.ts
-tsconfig.json
+**/*.test.tsx
+tsconfig.*
 .env
 .volumes/
 yarn-error.log
-.github/**
+.github/
 src/**
+test/
 coverage/
 .dependabot/
