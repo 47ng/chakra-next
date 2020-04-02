@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/47ng/chakra-next/badge.svg?branch=next)](https://coveralls.io/github/47ng/chakra-next?branch=next)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=47ng/chakra-next)](https://dependabot.com)
 
-Design System for React, based on Chakra UI + Next.js, written in TypeScript.
+Opinionated design system for React, based on Chakra UI + Next.js.
 
 ## Features
 
