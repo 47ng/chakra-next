@@ -16,6 +16,7 @@ Opinionated design system for React, based on Chakra UI + Next.js.
 - Components:
   - 🔗 [Links](#links)
   - 🗜 [Containers](#containers)
+  - ◻️ [Cards](#cards)
   - 🧪 _More to come_
 
 ## Installation
@@ -165,6 +166,34 @@ export default () => (
 
   {/* All containers can be wider */}
   <Container wide>I am centred and width-limited</Container>
+)
+```
+
+### Cards
+
+```tsx
+import { Card, FlexCard, StackCard } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    {/* Card as Box */}
+    <Card>I'm in a card</Card>
+
+    {/* Card + Flex */}
+    <FlexCard>
+      <Box>Direction is column by default</Box>
+      <Box>Foo</Box>
+      <Box>Bar</Box>
+      <Box>Egg</Box>
+    </FlexCard>
+
+    {/* Card + Stack */}
+    <StackCard spacing={8}>
+      <Box>Foo</Box>
+      <Box>Bar</Box>
+      <Box>Egg</Box>
+    </StackCard>
+  </>
 )
 ```
 
