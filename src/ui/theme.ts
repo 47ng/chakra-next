@@ -2,7 +2,7 @@ import { theme as chakraTheme, ITheme } from '@chakra-ui/core'
 import { tailwindColors } from './colors'
 import { systemFontStack, systemMonoFontStack } from './fonts'
 
-const theme: ITheme = {
+export const defaultTheme: ITheme = {
   ...chakraTheme,
   fonts: {
     ...chakraTheme.fonts,
@@ -29,5 +29,3 @@ const theme: ITheme = {
     none: 'none'
   }
 }
-
-export default theme
