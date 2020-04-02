@@ -6,12 +6,12 @@
   "license": "MIT",
   "author": {
     "name": "François Best",
-    "email": "francois.best@chiffre.io",
-    "url": "https://chiffre.io"
+    "email": "contact@francoisbest.com",
+    "url": "https://francoisbest.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chiffre-io/template-library"
+    "url": "https://github.com/47ng/chakra-next"
   },
   "keywords": [
     "react",
