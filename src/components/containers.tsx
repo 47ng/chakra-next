@@ -33,7 +33,15 @@ export const FlexContainer: React.FC<FlexContainerProps> = ({
   wide = false,
   ...props
 }) => {
-  return <Flex maxW={wide ? '3xl' : 'xl'} mx="auto" px={2} {...props} />
+  return (
+    <Flex
+      direction="column"
+      maxW={wide ? '3xl' : 'xl'}
+      mx="auto"
+      px={2}
+      {...props}
+    />
+  )
 }
 
 // --
