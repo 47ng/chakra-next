@@ -30,29 +30,30 @@ const defaultGlobalCss = css`
 // --
 
 export interface AppTraits {
-  theme: ITheme
+  theme?: ITheme
   getGlobalConfig?: CSSResetProps['config']
   globalCss?: SerializedStyles
   Providers?: React.FunctionComponent<any>
 }
 
 export function createChakraNextApp(
-  traits: AppTraits = {
+  {
+    theme = defaultTheme,
+    getGlobalConfig = defaultGetGlobalConfig,
+    globalCss = defaultGlobalCss,
+    Providers = React.Fragment
+  }: AppTraits = {
     theme: defaultTheme,
     getGlobalConfig: defaultGetGlobalConfig,
     globalCss: defaultGlobalCss,
     Providers: React.Fragment
   }
 ) {
-  const getGlobalConfig = traits.getGlobalConfig || defaultGetGlobalConfig
-  const globalCss = traits.globalCss || defaultGlobalCss
-  const Providers = traits.Providers || React.Fragment
-
   return class extends App {
     render() {
       const { Component, pageProps } = this.props
       return (
-        <ThemeProvider theme={traits.theme}>
+        <ThemeProvider theme={theme}>
           <CSSReset config={getGlobalConfig} />
           <Global styles={[globalCss]} />
           <Providers>
