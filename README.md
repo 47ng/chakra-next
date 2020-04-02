@@ -12,11 +12,11 @@ Design System for React, based on Chakra UI + Next.js, written in TypeScript.
 
 - Low-boilerplate `_app.tsx`
 - Batteries included but replaceable (theme, colors, fonts)
-- Components:
-  - Links
-  - Containers
-  - More to come
 - 100% TypeScript
+- Components:
+  - 🔗 [Links](#links)
+  - 🗜 [Containers](#containers)
+  - 🧪 _More to come_
 
 ## Installation
 
@@ -111,6 +111,61 @@ export default createChakraNextApp({
     </ApolloProvider>
   )
 })
+```
+
+## Components
+
+### Links
+
+```tsx
+import { RouteLink, OutgoingLink, ButtonRouteLink } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    {/* Integrate Next.js routes with Chakra styles */}
+    <RouteLink to="/login">Login</RouteLink>
+
+    {/* Use `as` for dynamic routes */}
+    <RouteLink to="/posts/[slug]" as="/posts/foo">Login</RouteLink>
+
+    {/* Make external links stand out */}
+    <OutgoingLink href="https://github.com">GitHub</RouteLink>
+
+    {/* For when a button looks better, still outputs an <a> tag */}
+    <ButtonRouteLink to="/logout">Logout</ButtonRouteLink>
+  </>
+)
+```
+
+### Containers
+
+```tsx
+import { Container, FlexContainer, StackContainer } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    {/* Container as Box */}
+    <Container>I am centred and width-limited</Container>
+
+    {/* Container + Flex */}
+    <FlexContainer>
+      <Box>Direction is column by default</Box>
+      <Box>Foo</Box>
+      <Box>Bar</Box>
+      <Box>Egg</Box>
+    </FlexContainer>
+
+    {/* Container + Stack */}
+    <StackContainer spacing={8}>
+      <Box>Foo</Box>
+      <Box>Bar</Box>
+      <Box>Egg</Box>
+    </StackContainer>
+  </>
+
+  {/* All containers can be wider */}
+  <Container wide>I am centred and width-limited</Container>
+)
 ```
 
 ## License
