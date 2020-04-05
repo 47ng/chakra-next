@@ -17,6 +17,7 @@ Opinionated design system for React, based on Chakra UI + Next.js.
   - 🔗 [Links](#links)
   - 🗜 [Containers](#containers)
   - ◻️ [Cards](#cards)
+  - 🎨 [SvgBox](#svgbox)
   - 🧪 _More to come_
 
 ## Installation
@@ -39,7 +40,7 @@ Create a `next.config.js` file at the root of your application:
 ```js
 // next.config.js
 const withTranspilation = require('next-transpile-modules')([
-  '@47ng/chakra-next'
+  '@47ng/chakra-next',
 ])
 
 module.exports = withTranspilation()
@@ -72,10 +73,10 @@ export default createChakraNextApp({
   theme: {
     ...defaultTheme,
     colors: {
-      ...defaultTheme.colors
+      ...defaultTheme.colors,
       // your colors here
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -91,7 +92,7 @@ export default createChakraNextApp({
     body {
       color: #333;
     }
-  `
+  `,
 })
 ```
 
@@ -110,7 +111,7 @@ export default createChakraNextApp({
     <ApolloProvider client={client}>
       <ReduxProvider store={store}>{children}</ReduxProvider>
     </ApolloProvider>
-  )
+  ),
 })
 ```
 
@@ -196,6 +197,28 @@ export default () => (
   </>
 )
 ```
+
+### SvgBox
+
+Composes [PseudoBox](https://chakra-ui.com/pseudobox) with an SVG tag, with
+SVG namespace pre-filled.
+
+```tsx
+import { SvgBox } from '@47ng/chakra-next'
+
+export default () => (
+  <SvgBox
+    viewBox="0 0 24 24"
+    display="block"
+    my={4}
+    mx="auto"
+  >
+    <circle fill="red" cx="12" cy="12" r="10">
+  </SvgBox>
+)
+```
+
+> **Note:** For now, we can't use theme color shorthands like `red.200` for fills & strokes, it might come in a later update.
 
 ## License
 
