@@ -49,7 +49,7 @@ export function createChakraNextApp(
     Providers: React.Fragment
   }
 ) {
-  return class extends App {
+  return class ChakraNextApp extends App {
     render() {
       const { Component, pageProps } = this.props
       return (
