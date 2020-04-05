@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '../../test/render'
 import '@testing-library/jest-dom/extend-expect'
-import { Card, FlexCard, StackCard } from './cards'
+import { Card, FlexCard, StackCard } from '../index'
 
 describe('Cards', () => {
   test('Card', () => {

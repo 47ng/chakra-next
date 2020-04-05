@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '../../test/render'
 import '@testing-library/jest-dom/extend-expect'
-import { Container, FlexContainer, StackContainer } from './containers'
+import { Container, FlexContainer, StackContainer } from '../index'
 
 describe('Containers', () => {
   test('Container', () => {
