@@ -208,6 +208,8 @@ import { SvgBox } from '@47ng/chakra-next'
 
 export default () => (
   <SvgBox
+    aria-label="A red circle"
+    role="img"
     viewBox="0 0 24 24"
     display="block"
     my={4}
