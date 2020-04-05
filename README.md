@@ -208,13 +208,17 @@ import { SvgBox } from '@47ng/chakra-next'
 
 export default () => (
   <SvgBox
-    aria-label="A red circle"
     role="img"
+    aria-labelledby="svgbox-demo-title svgbox-demo-desc"
     viewBox="0 0 24 24"
     display="block"
     my={4}
     mx="auto"
   >
+    <title id="svgbox-demo-title">A red circle</title>
+    <desc id="svgbox-demo-desc">
+      SvgBox lets you style SVG container tags with Chakra UI style props.
+    </desc>
     <circle fill="red" cx="12" cy="12" r="10">
   </SvgBox>
 )
