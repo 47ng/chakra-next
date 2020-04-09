@@ -33,18 +33,18 @@ export const RouteLink: React.FC<RouteLinkProps> = ({
 // --
 
 export interface OutgoingLinkProps extends ChakraLinkProps {
-  hideExternalIcon?: boolean
+  showExternalIcon?: boolean
 }
 
 export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
   children,
-  hideExternalIcon = false,
+  showExternalIcon = false,
   ...props
 }) => {
   return (
     <ChakraLink {...props}>
       {children}
-      {!hideExternalIcon && (
+      {showExternalIcon && (
         <Icon
           name="external-link"
           mx="2px"
