@@ -200,15 +200,16 @@ export default () => (
 
 ### SvgBox
 
-Composes [PseudoBox](https://chakra-ui.com/pseudobox) with an SVG tag, with
-SVG namespace pre-filled.
+Composes [PseudoBox](https://chakra-ui.com/pseudobox) with an SVG tag, with:
+
+- SVG namespace pre-filled
+- `role="img"`
 
 ```tsx
 import { SvgBox } from '@47ng/chakra-next'
 
 export default () => (
   <SvgBox
-    role="img"
     aria-labelledby="svgbox-demo-title svgbox-demo-desc"
     viewBox="0 0 24 24"
     display="block"
