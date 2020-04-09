@@ -120,12 +120,7 @@ export default createChakraNextApp({
 ### Links
 
 ```tsx
-import {
-  RouteLink,
-  OutgoingLink,
-  ButtonRouteLink,
-  NavLink
-} from '@47ng/chakra-next'
+import { RouteLink, OutgoingLink, ButtonRouteLink } from '@47ng/chakra-next'
 
 export default () => (
   <>
