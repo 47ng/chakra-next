@@ -3,7 +3,7 @@ update_configs:
   # Dependencies
   - package_manager: javascript
     directory: /
-    update_schedule: weekly
+    update_schedule: live
     default_assignees:
       - franky47
     automerged_updates:
