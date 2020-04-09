@@ -131,7 +131,9 @@ export default () => (
     <RouteLink to="/posts/[slug]" as="/posts/foo">Login</RouteLink>
 
     {/* Make external links stand out */}
-    <OutgoingLink href="https://github.com">GitHub</RouteLink>
+    <OutgoingLink href="https://github.com" showExternalIcon>
+      GitHub
+    </RouteLink>
 
     {/* For when a button looks better, still outputs an <a> tag */}
     <ButtonRouteLink to="/logout">Logout</ButtonRouteLink>
