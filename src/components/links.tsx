@@ -5,8 +5,10 @@ import {
   ButtonProps,
   Icon,
   Link as ChakraLink,
-  LinkProps as ChakraLinkProps
+  LinkProps as ChakraLinkProps,
+  PseudoBoxProps,
 } from '@chakra-ui/core'
+import { useRouter, NextRouter } from 'next/router'
 
 export interface RouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,
@@ -74,3 +76,50 @@ export const ButtonRouteLink: React.FC<ButtonRouteLinkProps> = ({
     </Button>
   </NextLink>
 )
+
+// --
+
+export interface ShouldBeActiveArgs {
+  to: string
+  as: string
+  router?: NextRouter
+}
+
+export type ShouldBeActivePredicate = (args: ShouldBeActiveArgs) => boolean
+
+export interface NavLinkActivePredicates {
+  exact: ShouldBeActivePredicate
+  startsWith: ShouldBeActivePredicate
+}
+
+export const navLinkMatch: NavLinkActivePredicates = {
+  exact: ({ as, router }) => router?.asPath === as,
+  startsWith: ({ as, router }) => router?.asPath?.startsWith(as) || false,
+}
+
+export interface NavLinkProps extends RouteLinkProps {
+  active?: Omit<Partial<PseudoBoxProps>, 'as'>
+  shouldBeActive?: (args: ShouldBeActiveArgs) => boolean
+}
+
+export const NavLink: React.FC<NavLinkProps> = ({
+  active: activeProps = {
+    textDecoration: 'underline',
+  },
+  shouldBeActive = navLinkMatch.startsWith,
+  to,
+  as = to,
+  ...props
+}) => {
+  const router = useRouter()
+  router.query
+  const active = shouldBeActive({ to, as, router })
+  return (
+    <RouteLink
+      {...(active ? (activeProps as any) : {})}
+      as={as}
+      to={to}
+      {...props}
+    />
+  )
+}

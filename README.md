@@ -120,7 +120,12 @@ export default createChakraNextApp({
 ### Links
 
 ```tsx
-import { RouteLink, OutgoingLink, ButtonRouteLink } from '@47ng/chakra-next'
+import {
+  RouteLink,
+  OutgoingLink,
+  ButtonRouteLink,
+  NavLink
+} from '@47ng/chakra-next'
 
 export default () => (
   <>
@@ -135,6 +140,95 @@ export default () => (
 
     {/* For when a button looks better, still outputs an <a> tag */}
     <ButtonRouteLink to="/logout">Logout</ButtonRouteLink>
+  </>
+)
+```
+
+#### NavLinks
+
+Use `NavLink` when you want a link to have special styling depending on
+the current page.
+
+By default, NavLinks:
+
+- <span style="text-decoration:underline">Underline</span> their text when active
+- Are active when the current path starts with the link path
+
+Example:
+
+```tsx
+import { NavLink } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <NavLink to="/blog">Blog</NavLink>
+  </>
+)
+```
+
+The link will be active for the following paths:
+
+| Path        | Active  |
+| ----------- | ------- |
+| `/home`     | `false` |
+| `/blog`     | `true`  |
+| `/blog/`    | `true`  |
+| `/blog/foo` | `true`  |
+
+##### Custom active styles
+
+```tsx
+import { NavLink } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <NavLink
+      to="/blog"
+      borderBottomWidth="3px"
+      borderBottomColor="transparent"
+      active={{ color: 'blue.500', borderBottomColor: 'blue.500' }}
+    >
+      Blog
+    </NavLink>
+  </>
+)
+```
+
+##### Exact paths
+
+Sometimes, you want the NavLink to be active only on exact route
+matches:
+
+```tsx
+import { NavLink, navLinkMatch } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <NavLink to="/home" shouldBeActive={navLinkMatch.exact}>
+      Home
+    </NavLink>
+  </>
+)
+```
+
+You can also have custom logic to determine whether a NavLink should
+be active:
+
+```tsx
+import { NavLink, navLinkMatch } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <NavLink
+      to="/blog/[post]"
+      as="/blog/another-blog-post?active=true"
+      shouldBeActive={({ to, as, router }) =>
+        navLinkMatch.exact({ to, as, router }) &&
+        router?.query.active === 'true'
+      }
+    >
+      Another Blog Post
+    </NavLink>
   </>
 )
 ```
@@ -226,6 +320,25 @@ export default () => (
 ```
 
 > **Note:** For now, we can't use theme color shorthands like `red.200` for fills & strokes, it might come in a later update.
+
+## Examples
+
+Header with navigation links:
+
+```tsx
+import { Box, Stack } from '@chakra-ui/core'
+import { NavLink } from '@47ng/chakra-next'
+
+export default () => (
+  <Box as="header">
+    <Stack as="nav" isInline>
+      <NavLink to="/features">Features</NavLink>
+      <NavLink to="/pricing">Pricing</NavLink>
+      <NavLink to="/docs">Documentation</NavLink>
+    </Stack>
+  </Box>
+)
+```
 
 ## License
 
