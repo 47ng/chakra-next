@@ -1,14 +1,12 @@
 import React from 'react'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import {
-  Button,
-  ButtonProps,
-  Icon,
-  Link as ChakraLink,
-  LinkProps as ChakraLinkProps,
-  PseudoBoxProps,
-} from '@chakra-ui/core'
 import { useRouter, NextRouter } from 'next/router'
+import { PseudoBoxProps } from '@chakra-ui/core/dist/PseudoBox'
+import Button, { ButtonProps } from '@chakra-ui/core/dist/Button'
+import Icon from '@chakra-ui/core/dist/Icon'
+import ChakraLink, {
+  LinkProps as ChakraLinkProps,
+} from '@chakra-ui/core/dist/Link'
 
 export interface RouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,

@@ -1,5 +1,5 @@
 import React, { SVGAttributes } from 'react'
-import { PseudoBox, PseudoBoxProps } from '@chakra-ui/core'
+import PseudoBox, { PseudoBoxProps } from '@chakra-ui/core/dist/PseudoBox'
 
 export type SvgBoxProps = PseudoBoxProps &
   Pick<

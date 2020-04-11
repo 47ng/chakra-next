@@ -1,24 +1,26 @@
 import React from 'react'
 import App from 'next/app'
-import { ThemeProvider, CSSReset, ITheme, CSSResetProps } from '@chakra-ui/core'
-import { defaultTheme } from '../ui/theme'
+import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider'
+import CSSReset, { CSSResetProps } from '@chakra-ui/core/dist/CSSReset'
+import type { ITheme } from '@chakra-ui/core/dist/theme'
 import { Global, css, SerializedStyles } from '@emotion/core'
+import { defaultTheme } from '../ui/theme'
 
 type GetGlobalConfig = Required<CSSResetProps>['config']
 
-const defaultGetGlobalConfig: GetGlobalConfig = theme => ({
+const defaultGetGlobalConfig: GetGlobalConfig = (theme) => ({
   light: {
     color: theme.colors.gray[700],
     bg: theme.colors.gray[200],
     borderColor: theme.colors.gray[400],
-    placeholderColor: theme.colors.gray[600]
+    placeholderColor: theme.colors.gray[600],
   },
   dark: {
     color: theme.colors.gray[400],
     bg: theme.colors.gray[800],
     borderColor: theme.colors.whiteAlpha[300],
-    placeholderColor: theme.colors.gray[600]
-  }
+    placeholderColor: theme.colors.gray[600],
+  },
 })
 
 const defaultGlobalCss = css`
@@ -41,12 +43,12 @@ export function createChakraNextApp(
     theme = defaultTheme,
     getGlobalConfig = defaultGetGlobalConfig,
     globalCss = defaultGlobalCss,
-    Providers = React.Fragment
+    Providers = React.Fragment,
   }: AppTraits = {
     theme: defaultTheme,
     getGlobalConfig: defaultGetGlobalConfig,
     globalCss: defaultGlobalCss,
-    Providers: React.Fragment
+    Providers: React.Fragment,
   }
 ) {
   return class ChakraNextApp extends App {

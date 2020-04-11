@@ -1,12 +1,7 @@
 import React from 'react'
-import {
-  Box,
-  Flex,
-  Stack,
-  BoxProps,
-  FlexProps,
-  StackProps
-} from '@chakra-ui/core'
+import Box, { BoxProps } from '@chakra-ui/core/dist/Box'
+import Flex, { FlexProps } from '@chakra-ui/core/dist/Flex'
+import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
 
 // --
 
@@ -14,7 +9,7 @@ const baseProps: BoxProps = {
   p: 4,
   borderRadius: 4,
   bg: 'white',
-  shadow: 'md'
+  shadow: 'md',
 }
 
 export interface CardProps extends BoxProps {}

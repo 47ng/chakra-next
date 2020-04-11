@@ -14,6 +14,7 @@ describe('SvgBox', () => {
     expect(element.tagName).toEqual('svg')
     expect(element.getAttribute('xmlns')).toEqual('http://www.w3.org/2000/svg')
     expect(element.getAttribute('role')).toEqual('img')
+    expect(element.getAttribute('aria-label')).toEqual('Test')
     expect(element.getAttribute('viewBox')).toBeNull()
     expect(element.childElementCount).toEqual(1)
     expect(element.firstElementChild!.tagName).toBe('circle')
