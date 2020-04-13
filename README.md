@@ -268,6 +268,22 @@ export default () => (
 )
 ```
 
+If you want to [redirect to an external link](https://github.com/zeit/next.js/blob/master/errors/invalid-href-passed.md)
+(not an internal route), you will have to set the `external` prop:
+
+```tsx
+import { Redirect } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <Redirect to="https://example.com" external />
+
+    {/* You can also have the history replaced with external URLs: */}
+    <Redirect to="https://example.com" external replace />
+  </>
+)
+```
+
 ### Containers
 
 ```tsx

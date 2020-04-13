@@ -39,4 +39,33 @@ describe('Redirect', () => {
     expect(fakeRouter.push.mock.calls[0][0]).toEqual('/foo/[slug]')
     expect(fakeRouter.push.mock.calls[0][1]).toEqual('/foo/bar')
   })
+
+  test('external URL - push', () => {
+    fakeRouter.push = jest.fn()
+    fakeRouter.replace = jest.fn()
+    delete window.location
+    window.location = Object.assign(new URL('http://localhost'), {
+      assign: jest.fn(),
+      replace: jest.fn(),
+    }) as any
+    render(<Redirect to="https://example.com" external />)
+    expect(fakeRouter.push).not.toHaveBeenCalled()
+    expect(fakeRouter.replace).not.toHaveBeenCalled()
+    expect(window.location.assign).toHaveBeenCalledWith('https://example.com')
+    expect(window.location.replace).not.toHaveBeenCalled()
+  })
+  test('external URL - replace', () => {
+    fakeRouter.push = jest.fn()
+    fakeRouter.replace = jest.fn()
+    delete window.location
+    window.location = Object.assign(new URL('http://localhost'), {
+      assign: jest.fn(),
+      replace: jest.fn(),
+    }) as any
+    render(<Redirect to="https://example.com" external replace />)
+    expect(fakeRouter.push).not.toHaveBeenCalled()
+    expect(fakeRouter.replace).not.toHaveBeenCalled()
+    expect(window.location.replace).toHaveBeenCalledWith('https://example.com')
+    expect(window.location.assign).not.toHaveBeenCalled()
+  })
 })
