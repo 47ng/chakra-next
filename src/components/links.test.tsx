@@ -12,7 +12,7 @@ import {
   ButtonRouteLink,
   NavLink,
   navLinkMatch,
-} from './links'
+} from '../index'
 
 describe('Links', () => {
   test('RouteLink', () => {
