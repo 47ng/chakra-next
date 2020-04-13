@@ -18,6 +18,7 @@ Opinionated design system for React, based on Chakra UI + Next.js.
   - 🗜 [Containers](#containers)
   - ◻️ [Cards](#cards)
   - 🎨 [SvgBox](#svgbox)
+  - ➡️ [Redirect](#redirect)
   - 🧪 _More to come_
 
 ## Installation
@@ -226,6 +227,43 @@ export default () => (
     >
       Another Blog Post
     </NavLink>
+  </>
+)
+```
+
+### Redirect
+
+`Redirect` will change the current URL to the one given, when mounted.
+
+```tsx
+import { Redirect } from '@47ng/chakra-next'
+
+export default ({ loggedIn }) => (
+  <>{loggedIn ? <Text>Hello !</Text> : <Redirect to="/login" />}</>
+)
+```
+
+By default, the redirection will be pushed onto the navigation history stack.
+You can replace the history stack instead with the `replace` prop:
+
+```tsx
+import { Redirect } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <Redirect to="/home" replace />
+  </>
+)
+```
+
+Next.js dynamic paths are also supported:
+
+```tsx
+import { Redirect } from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <Redirect to="/blog/[slug]" as="/blog/foo-bar" />
   </>
 )
 ```
