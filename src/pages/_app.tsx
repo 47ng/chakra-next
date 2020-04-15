@@ -2,9 +2,8 @@ import React from 'react'
 import App from 'next/app'
 import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider'
 import CSSReset, { CSSResetProps } from '@chakra-ui/core/dist/CSSReset'
-import type { ITheme } from '@chakra-ui/core/dist/theme'
 import { Global, css, SerializedStyles } from '@emotion/core'
-import { defaultTheme } from '../ui/theme'
+import { defaultTheme, Theme } from '../ui/theme'
 
 type GetGlobalConfig = Required<CSSResetProps>['config']
 
@@ -32,7 +31,7 @@ const defaultGlobalCss = css`
 // --
 
 export interface AppTraits {
-  theme?: ITheme
+  theme?: Theme
   getGlobalConfig?: CSSResetProps['config']
   globalCss?: SerializedStyles
   Providers?: React.FunctionComponent<any>
