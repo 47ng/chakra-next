@@ -19,6 +19,7 @@ Opinionated design system for React, based on Chakra UI + Next.js.
   - ◻️ [Cards](#cards)
   - 🎨 [SvgBox](#svgbox)
   - ➡️ [Redirect](#redirect)
+  - 🚧 [NoSSR](#nossr)
   - 🧪 _More to come_
 
 ## Installation
@@ -371,6 +372,26 @@ export default () => (
 ```
 
 > **Note:** For now, we can't use theme color shorthands like `red.200` for fills & strokes, it might come in a later update.
+
+### NoSSR
+
+Sometimes you want to render a component only on the client, and have a skeleton
+or fallback component rendered on the server, whether for SSR or static output.
+
+```tsx
+import {} from '@47ng/chakra-next'
+
+export default () => (
+  <>
+    <NoSSR>This is only rendered on the client</NoSSR>
+
+    {/* Skeleton is rendered on SSR/SSG, TheRealThing is rendered on the client.*/}
+    <NoSSR fallback={<Skeleton />}>
+      <TheRealThing />
+    </NoSSR>
+  </>
+)
+```
 
 ## Examples
 
