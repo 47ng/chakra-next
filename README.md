@@ -379,7 +379,7 @@ Sometimes you want to render a component only on the client, and have a skeleton
 or fallback component rendered on the server, whether for SSR or static output.
 
 ```tsx
-import {} from '@47ng/chakra-next'
+import { NoSSR } from '@47ng/chakra-next'
 
 export default () => (
   <>
