@@ -32,7 +32,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@chakra-ui/core": "^0.7.0",
+    "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "*",
     "@emotion/styled": "*",
     "emotion-theming": "*",
@@ -41,7 +41,7 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@chakra-ui/core": "^0.7.0",
+    "@chakra-ui/core": "^0.8.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
