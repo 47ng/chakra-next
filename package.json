@@ -27,7 +27,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "build:clean": "rm -rf ./dist",
-    "build:ts": "tsc",
+    "build:ts": "tsc --project tsconfig.base.json",
     "build": "run-s build:clean build:ts",
     "ci": "run-s build test"
   },

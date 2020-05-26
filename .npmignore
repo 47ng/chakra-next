@@ -9,3 +9,8 @@ src/**
 test/
 coverage/
 .dependabot/
+.next/
+pages/
+out/
+next-env.d.ts
+next.config.js
