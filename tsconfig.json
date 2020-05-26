@@ -1,41 +1,11 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "lib": ["DOM"],
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "jsx": "preserve",
-
-    // Strict Type-Checking Options
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-
-    // Additional Checks
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
-    // Experimental Options
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": [
-    "./src/**/*.test.ts",
-    "./src/**/*.test.tsx",
-    "./dist",
-    "./node_modules",
-    "./test"
-  ]
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  }
 }
