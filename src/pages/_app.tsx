@@ -36,6 +36,7 @@ export interface AppTraits {
   getGlobalConfig?: CSSResetProps['config']
   globalCss?: SerializedStyles
   Providers?: React.FunctionComponent<any>
+  enableColorMode?: true | 'light' | 'dark'
 }
 
 export function createChakraNextApp(
@@ -44,6 +45,7 @@ export function createChakraNextApp(
     getGlobalConfig = defaultGetGlobalConfig,
     globalCss = defaultGlobalCss,
     Providers = React.Fragment,
+    enableColorMode,
   }: AppTraits = {
     theme: defaultTheme,
     getGlobalConfig: defaultGetGlobalConfig,
@@ -51,18 +53,21 @@ export function createChakraNextApp(
     Providers: React.Fragment,
   }
 ) {
+  const ColorMode = enableColorMode ? ColorModeProvider : React.Fragment
   return class ChakraNextApp extends App {
     render() {
       const { Component, pageProps } = this.props
       return (
         <ThemeProvider theme={theme}>
-          <ColorModeProvider>
+          <ColorMode
+            value={enableColorMode === true ? undefined : enableColorMode}
+          >
             <CSSReset config={getGlobalConfig} />
             <Global styles={[globalCss]} />
             <Providers>
               <Component {...pageProps} />
             </Providers>
-          </ColorModeProvider>
+          </ColorMode>
         </ThemeProvider>
       )
     }
