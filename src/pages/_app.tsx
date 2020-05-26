@@ -29,6 +29,8 @@ const defaultGlobalCss = css`
   }
 `
 
+const DummyColorModeProvider: React.FC<any> = ({ children }) => children
+
 // --
 
 export interface AppTraits {
@@ -53,7 +55,7 @@ export function createChakraNextApp(
     Providers: React.Fragment,
   }
 ) {
-  const ColorMode = enableColorMode ? ColorModeProvider : React.Fragment
+  const ColorMode = enableColorMode ? ColorModeProvider : DummyColorModeProvider
   return class ChakraNextApp extends App {
     render() {
       const { Component, pageProps } = this.props
