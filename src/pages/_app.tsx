@@ -17,8 +17,8 @@ const defaultGetGlobalConfig: GetGlobalConfig = (theme) => ({
   },
   dark: {
     color: theme.colors.gray[400],
-    bg: theme.colors.gray[800],
-    borderColor: theme.colors.whiteAlpha[300],
+    bg: '#0f141c', // theme.colors.gray[900],
+    borderColor: theme.colors.gray[800],
     placeholderColor: theme.colors.gray[600],
   },
 })
