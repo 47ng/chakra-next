@@ -29,6 +29,8 @@ describe('Links', () => {
     const element = getByTestId('link')
     expect(element.tagName).toEqual('A')
     expect(element).toHaveAttribute('href', '/foo')
+    expect(element).toHaveAttribute('target', '_blank')
+    expect(element).toHaveAttribute('rel', 'noopener noreferrer')
   })
 
   test('ButtonRouteLink', () => {
