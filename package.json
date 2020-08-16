@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@chakra-ui/core": "^0.8.0",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-conventional": "^9.1.2",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@mdx-js/loader": "^1.6.4",
