@@ -49,7 +49,7 @@
     "@mdx-js/loader": "^1.6.4",
     "@next/mdx": "^9.4.2",
     "@testing-library/jest-dom": "^5.8.0",
-    "@testing-library/react": "^10.0.4",
+    "@testing-library/react": "^11.0.3",
     "@types/jest": "^26.0.0",
     "@types/node": "^14.0.5",
     "commitlint": "^8.3.5",
