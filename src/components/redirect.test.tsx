@@ -43,6 +43,7 @@ describe('Redirect', () => {
   test('external URL - push', () => {
     fakeRouter.push = jest.fn()
     fakeRouter.replace = jest.fn()
+    // @ts-ignore
     delete window.location
     window.location = Object.assign(new URL('http://localhost'), {
       assign: jest.fn(),
@@ -57,6 +58,7 @@ describe('Redirect', () => {
   test('external URL - replace', () => {
     fakeRouter.push = jest.fn()
     fakeRouter.replace = jest.fn()
+    // @ts-ignore
     delete window.location
     window.location = Object.assign(new URL('http://localhost'), {
       assign: jest.fn(),

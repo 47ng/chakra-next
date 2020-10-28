@@ -37,33 +37,34 @@
     "@emotion/core": "*",
     "@emotion/styled": "*",
     "emotion-theming": "*",
-    "next": "^9.x",
+    "next": "^10.x",
     "react": "*",
     "react-dom": "*"
   },
   "devDependencies": {
     "@chakra-ui/core": "^0.8.0",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-conventional": "^11.0.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@mdx-js/loader": "^1.6.4",
-    "@next/mdx": "^9.4.2",
-    "@testing-library/jest-dom": "^5.8.0",
-    "@testing-library/react": "^10.0.4",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^14.0.5",
-    "commitlint": "^8.3.5",
+    "@mdx-js/loader": "^1.6.19",
+    "@next/mdx": "^10.0.0",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.5",
+    "@types/webpack": "^4.41.23",
+    "commitlint": "^11.0.0",
     "emotion-theming": "^10.0.27",
-    "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "husky": "^4.3.0",
+    "jest": "^26.6.1",
     "next": "^9.3.6",
     "next-compose-plugins": "^2.2.0",
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "ts-jest": "^26.0.0",
-    "ts-node": "^8.10.1",
-    "typescript": "^3.9.3"
+    "ts-jest": "^26.4.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
   },
   "jest": {
     "verbose": true,
@@ -71,7 +72,7 @@
     "testEnvironment": "jsdom",
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.test.json"
+        "tsconfig": "tsconfig.test.json"
       }
     }
   },
