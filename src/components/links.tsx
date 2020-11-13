@@ -1,12 +1,14 @@
 import React from 'react'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { useRouter, NextRouter } from 'next/router'
-import { PseudoBoxProps } from '@chakra-ui/core/dist/PseudoBox'
-import Button, { ButtonProps } from '@chakra-ui/core/dist/Button'
-import Icon from '@chakra-ui/core/dist/Icon'
-import ChakraLink, {
+import {
+  BoxProps,
+  Button,
+  ButtonProps,
+  Icon,
+  Link as ChakraLink,
   LinkProps as ChakraLinkProps,
-} from '@chakra-ui/core/dist/Link'
+} from '@chakra-ui/react'
 
 export interface RouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,
@@ -97,7 +99,7 @@ export const navLinkMatch: NavLinkActivePredicates = {
 }
 
 export interface NavLinkProps extends RouteLinkProps {
-  active?: Omit<Partial<PseudoBoxProps>, 'as'>
+  active?: Omit<Partial<BoxProps>, 'as'>
   shouldBeActive?: (args: ShouldBeActiveArgs) => boolean
 }
 

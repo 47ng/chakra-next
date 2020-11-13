@@ -1,7 +1,12 @@
 import React from 'react'
-import Box, { BoxProps } from '@chakra-ui/core/dist/Box'
-import Flex, { FlexProps } from '@chakra-ui/core/dist/Flex'
-import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
+import {
+  Box,
+  BoxProps,
+  Flex,
+  FlexProps,
+  Stack,
+  StackProps,
+} from '@chakra-ui/react'
 
 // --
 

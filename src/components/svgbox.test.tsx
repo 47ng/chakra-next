@@ -1,14 +1,14 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import { render } from '../../test/render'
-import { SvgBox } from '../index'
+import { Svg } from '../index'
 
-describe('SvgBox', () => {
+describe('Svg', () => {
   test('SVG', () => {
     const { getByTestId } = render(
-      <SvgBox data-testid="svg" aria-label="Test">
+      <Svg data-testid="svg" aria-label="Test">
         <circle cx="0" cy="0" r="1" />
-      </SvgBox>
+      </Svg>
     )
     const element = getByTestId('svg')
     expect(element.tagName).toEqual('svg')
