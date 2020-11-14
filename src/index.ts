@@ -1,5 +1,4 @@
 export * from './components/cards'
-export * from './components/containers'
 export * from './components/links'
 export * from './components/redirect'
 export * from './components/svg'
