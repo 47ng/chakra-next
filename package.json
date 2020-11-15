@@ -72,6 +72,9 @@
     "verbose": true,
     "preset": "ts-jest/presets/js-with-ts",
     "testEnvironment": "jsdom",
+    "setupFiles": [
+      "./test/env.js"
+    ],
     "globals": {
       "ts-jest": {
         "tsconfig": "tsconfig.test.json"
