@@ -99,7 +99,7 @@ export const navLinkMatch: NavLinkActivePredicates = {
 }
 
 export interface NavLinkProps extends RouteLinkProps {
-  active?: Omit<Partial<BoxProps>, 'as'>
+  active?: Partial<Omit<BoxProps, 'as'>>
   shouldBeActive?: (args: ShouldBeActiveArgs) => boolean
 }
 
@@ -113,7 +113,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
   ...props
 }) => {
   const router = useRouter()
-  router.query
   const active = shouldBeActive({ to, as, router })
   return (
     <RouteLink
