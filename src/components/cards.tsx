@@ -1,8 +1,13 @@
 import React from 'react'
-import PseudoBox, { PseudoBoxProps } from '@chakra-ui/core/dist/PseudoBox'
-import Flex, { FlexProps } from '@chakra-ui/core/dist/Flex'
-import Stack, { StackProps } from '@chakra-ui/core/dist/Stack'
-import { useColorMode } from '@chakra-ui/core/dist/ColorModeProvider'
+import {
+  Box,
+  BoxProps,
+  Flex,
+  FlexProps,
+  Stack,
+  StackProps,
+  useColorMode,
+} from '@chakra-ui/react'
 
 // --
 
@@ -11,19 +16,17 @@ export const cardBackgroundColors = {
   dark: 'gray.900',
 }
 
-export const cardProps: PseudoBoxProps = {
+export const cardProps: BoxProps = {
   p: 4,
   borderRadius: 4,
   shadow: 'md',
 }
 
-export interface CardProps extends PseudoBoxProps {}
+export interface CardProps extends BoxProps {}
 
 export const Card: React.FC<CardProps> = ({ ...props }) => {
   const { colorMode } = useColorMode()
-  return (
-    <PseudoBox {...cardProps} bg={cardBackgroundColors[colorMode]} {...props} />
-  )
+  return <Box {...cardProps} bg={cardBackgroundColors[colorMode]} {...props} />
 }
 
 // --

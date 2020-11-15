@@ -5,8 +5,11 @@ const withMDX = require('@next/mdx')({
 
 const nextConfig = {
   pageExtensions: ['tsx', 'mdx'],
-  experimental: {
-    reactRefresh: true,
+  images: {
+    deviceSizes: [320, 420, 768, 1024, 1200],
+    iconSizes: [],
+    domains: ['images.unsplash.com'],
+    loader: 'default',
   },
 }
 

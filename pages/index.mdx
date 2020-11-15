@@ -1,11 +1,27 @@
 import { useRouter } from 'next/router'
-import { Box, Stack, Text, Code, Button } from '@chakra-ui/core'
-import { Container, StackCard } from '../src'
+import {
+  Box,
+  Stack,
+  Text,
+  Code,
+  Button,
+  Heading,
+  StackDivider,
+  Container,
+} from '@chakra-ui/react'
+import { StackCard, NavLink, Image } from '../src'
 
 export default ({ children }) => <Container my={8}>{children}</Container>
 
-Foo
-
-<StackCard>
-  <Text>Bar</Text>
+<StackCard spacing={8}>
+  <Heading fontSize="3xl" textAlign="center">
+    Chakra-UI 🤝 Next.js
+  </Heading>
+  <NavLink to="/">Foo</NavLink>
+  <Text fontSize="sm">Subtext</Text>
+  <Image
+    src="https://images.unsplash.com/photo-1585245332774-3dd2b177e7fa?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjU3ODY1fQ"
+    dimensions={[5048, 3414]}
+    rounded="md"
+  />
 </StackCard>
