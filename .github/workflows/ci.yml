@@ -6,6 +6,7 @@ on:
       - next
       - feature/*
       - dependabot/*
+      - v3
   pull_request:
     types: [opened, edited, reopened, synchronize]
 
