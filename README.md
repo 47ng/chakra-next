@@ -346,7 +346,7 @@ export default () => (
 
 ### SvgBox
 
-Composes [PseudoBox](https://chakra-ui.com/pseudobox) with an SVG tag, with:
+Composes [Box](https://chakra-ui.com/pseudobox) with an SVG tag, with:
 
 - SVG namespace pre-filled
 - `role="img"`
@@ -398,7 +398,7 @@ export default () => (
 Header with navigation links:
 
 ```tsx
-import { Box, Stack } from '@chakra-ui/core'
+import { Box, Stack } from '@chakra-ui/react'
 import { NavLink } from '@47ng/chakra-next'
 
 export default () => (
