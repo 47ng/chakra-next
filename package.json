@@ -3,6 +3,7 @@
   "version": "0.0.0-semantically-released",
   "description": "Design System for React, based on Chakra UI + Next.js, written in TypeScript.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "author": {
     "name": "François Best",
