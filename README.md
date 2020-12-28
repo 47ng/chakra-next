@@ -415,3 +415,5 @@ export default () => (
 ## License
 
 [MIT](https://github.com/47ng/chakra-next/blob/next/LICENSE) - Made with ❤️ by [François Best](https://francoisbest.com).
+
+Using this package at work ? [Sponsor me](https://github.com/sponsors/franky47) to help with support and maintenance.
