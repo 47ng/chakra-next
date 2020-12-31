@@ -144,6 +144,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
       {...(active ? (activeProps as any) : {})}
       as={as}
       to={to}
+      aria-current={active ? 'page' : undefined}
       {...props}
     />
   )
