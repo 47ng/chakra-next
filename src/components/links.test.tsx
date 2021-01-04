@@ -33,6 +33,19 @@ describe('Links', () => {
     expect(element).toHaveAttribute('rel', 'noopener noreferrer')
   })
 
+  test('OutgoingLink - custom rel', () => {
+    const { getByTestId } = render(
+      <OutgoingLink
+        href="/foo"
+        data-testid="link"
+        rel="foo"
+        noreferrer={false}
+      />
+    )
+    const element = getByTestId('link')
+    expect(element).toHaveAttribute('rel', 'foo noopener')
+  })
+
   test('ButtonRouteLink', () => {
     const { getByTestId } = render(
       <ButtonRouteLink to="/foo" data-testid="link">
@@ -54,6 +67,7 @@ describe('Links', () => {
     const element = getByTestId('link')
     expect(element.tagName).toEqual('A')
     expect(element).toHaveAttribute('href', '/foo')
+    expect(element).toHaveAttribute('aria-current', 'page')
     // const style = getComputedStyle(element)
     // expect(style.textDecoration).toEqual('underline')
   })
@@ -74,6 +88,7 @@ describe('Links', () => {
     const element = getByTestId('link')
     expect(element.tagName).toEqual('A')
     expect(element).toHaveAttribute('href', '/f')
+    expect(element).toHaveAttribute('aria-current', 'page')
     const style = getComputedStyle(element)
     expect(style.color).toEqual('limegreen')
   })
@@ -92,6 +107,7 @@ describe('Links', () => {
       </NavLink>
     )
     const element = getByTestId('link')
+    expect(element).not.toHaveAttribute('aria-current')
     const style = getComputedStyle(element)
     expect(style.color).not.toEqual('limegreen')
   })
@@ -111,6 +127,7 @@ describe('Links', () => {
       </NavLink>
     )
     const element = getByTestId('link')
+    expect(element).not.toHaveAttribute('aria-current')
     const style = getComputedStyle(element)
     expect(style.color).not.toEqual('limegreen')
   })
@@ -130,6 +147,7 @@ describe('Links', () => {
       </NavLink>
     )
     const element = getByTestId('link')
+    expect(element).toHaveAttribute('aria-current', 'page')
     const style = getComputedStyle(element)
     expect(style.color).toEqual('limegreen')
   })
