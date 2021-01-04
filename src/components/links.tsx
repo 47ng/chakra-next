@@ -37,16 +37,30 @@ export const RouteLink: React.FC<RouteLinkProps> = ({
 
 export interface OutgoingLinkProps extends ChakraLinkProps {
   showExternalIcon?: boolean
+  noreferrer?: boolean
+  noopener?: boolean
+  rel?: string
 }
 
 export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
   children,
   isExternal = true,
   showExternalIcon = false,
+  noreferrer = true,
+  noopener = true,
+  rel = '',
   ...props
 }) => {
+  const _rel = [
+    ...rel.split(' '),
+    noopener && 'noopener',
+    noreferrer && 'noreferrer',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <ChakraLink isExternal={isExternal} {...props}>
+    <ChakraLink isExternal={isExternal} rel={_rel} {...props}>
       {children}
       {showExternalIcon && (
         <Icon
