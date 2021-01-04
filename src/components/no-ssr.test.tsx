@@ -9,11 +9,11 @@ describe('NoSSR', () => {
   })
   test('Strings', () => {
     const { container } = render(<NoSSR fallback="server">client</NoSSR>)
-    expect(getNodeText(container)).toEqual('client')
+    expect(getNodeText(container as any)).toEqual('client')
   })
   test('Strings', () => {
     const { container } = render(<NoSSR fallback="server">client</NoSSR>)
-    expect(getNodeText(container)).toEqual('client')
+    expect(getNodeText(container as any)).toEqual('client')
   })
   test('Single element', async () => {
     const { findByText } = render(
