@@ -5,13 +5,14 @@ import {
   BoxProps,
   Button,
   ButtonProps,
-  Icon,
   Link as ChakraLink,
   LinkProps as ChakraLinkProps,
   IconButton,
   IconButtonProps,
+  Box,
 } from '@chakra-ui/react'
 import type { Merge } from '@chakra-ui/utils'
+import { FiExternalLink } from 'react-icons/fi'
 
 export interface RouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,
@@ -63,8 +64,8 @@ export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
     <ChakraLink isExternal={isExternal} rel={_rel} {...props}>
       {children}
       {showExternalIcon && (
-        <Icon
-          name="external-link"
+        <Box
+          as={FiExternalLink}
           mx="2px"
           aria-label="(external link)"
           mt="-0.25em"
