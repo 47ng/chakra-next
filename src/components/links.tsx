@@ -66,10 +66,11 @@ export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
       {showExternalIcon && (
         <Box
           as={FiExternalLink}
-          mx="2px"
-          aria-label="(external link)"
+          display="inline-block"
+          mx="0.2em"
           mt="-0.25em"
           fontSize="0.8em"
+          aria-label="(external link)"
         />
       )}
     </ChakraLink>
