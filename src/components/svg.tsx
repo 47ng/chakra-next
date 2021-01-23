@@ -4,7 +4,7 @@ import { chakra, ChakraProps } from '@chakra-ui/react'
 export type SvgProps = ChakraProps &
   Pick<
     SVGAttributes<HTMLOrSVGElement>,
-    'xmlns' | 'viewBox' | 'preserveAspectRatio'
+    'xmlns' | 'viewBox' | 'preserveAspectRatio' | 'role'
   >
 
 export const Svg: React.FC<SvgProps> = ({ children, ...props }) => (
