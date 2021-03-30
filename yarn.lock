@@ -1083,9 +1083,9 @@
   integrity sha512-G6kEq7dr7f+unVTUL74lIaB6njB73vEMVi7AhujaNnNZr6z8jQ43jCjNyawQsNyoNWsRo/9x6x9W72PbrGmy/w==
 
 "@next/mdx@^10.0.0":
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-10.1.1.tgz#12964101e763ac51888f363a427a248f5229d92c"
-  integrity sha512-jfDU5Ur9bT9O0vhDai4V0I15bK2dVtqEQLv3lHG7EMKYb99H9ZaW1encOL/8TW600Wuk1aJBxUYfqaDYnUyIww==
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-10.1.2.tgz#8a93cb9546f2ad93c1a0850b75b13c5f8ebc4573"
+  integrity sha512-yomUJudRX/iAxDafWwL23Grpgw5Eu5NuLPwTHxyXEsRnMOiwQlhAlHSye3BhxXrZaMAt08RYM75Mc3jeqoz6Sg==
 
 "@next/polyfill-module@10.1.2":
   version "10.1.2"
