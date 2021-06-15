@@ -57,7 +57,7 @@
     "emotion-theming": "^10.0.27",
     "husky": "6.x",
     "jest": "^26.6.1",
-    "next": "^10.0.1",
+    "next": "^11.0.0",
     "next-compose-plugins": "^2.2.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
