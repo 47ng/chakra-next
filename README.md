@@ -33,6 +33,28 @@ In your Next.js app:
 $ npm install @47ng/chakra-next
 ```
 
+## Theme tools
+
+To resolve theme tokens across color modes, use `useColorModeToken`:
+
+```ts
+import { useColorModeToken } from '@47ng/chakra-next'
+
+const fill = useColorModeToken('red.500', 'blue.500')
+const shadow = useColorModeToken('md', 'dark-lg', 'shadows')
+```
+
+The following semantic tokens are provided:
+
+- colors:
+  - `body` (follows the html/body/\_\_next background color)
+  - `text.dim`
+  - `text.dimmer`
+  - `text.dimmest`
+  - `card.bg`
+- shadows:
+  - `card.shadow` _(make card shadow darker in dark mode to stand out)_
+
 ## Components
 
 ### Links
