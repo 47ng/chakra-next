@@ -1,38 +1,44 @@
-import chakraTheme, { ITheme, ColorHues } from '@chakra-ui/core/dist/theme'
-import { tailwindColors } from './colors'
-import { systemFontStack, systemMonoFontStack } from './fonts'
+import { extendTheme } from '@chakra-ui/react'
 
-export interface Theme extends ITheme {
-  colors: ITheme['colors'] & {
-    // Custom colors hues
-    indigo: ColorHues
-  }
-}
-
-export const defaultTheme: Theme = {
-  ...chakraTheme,
-  fonts: {
-    ...chakraTheme.fonts,
-    body: systemFontStack,
-    heading: systemFontStack,
-    mono: systemMonoFontStack,
+export const chakraNextTheme = extendTheme({
+  styles: {
+    global: () => ({
+      'html, body, #__next': {
+        background: 'body', // see below
+      },
+    }),
   },
   colors: {
-    // Tailwind CSS colors
-    ...chakraTheme.colors,
-    ...tailwindColors,
+    gray: {
+      1000: '#121721', // when 900 is not dark enough
+    },
   },
-  shadows: {
-    ...chakraTheme.shadows,
-    sm: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    lg:
-      '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    xl:
-      '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    none: 'none',
+  semanticTokens: {
+    colors: {
+      body: {
+        default: 'gray.100',
+        _dark: 'gray.1000',
+      },
+      'card.bg': {
+        default: '#fff',
+        _dark: 'gray.800',
+      },
+      // </!\> Dimmed text may have contrast concerns for a11y, use wisely. </!\>
+      'text.dim': {
+        default: 'gray.600',
+        _dark: 'gray.400',
+      },
+      'text.dimmer': 'gray.500',
+      'text.dimmest': {
+        default: 'gray.400',
+        _dark: 'gray.600',
+      },
+    },
+    shadows: {
+      'card.shadow': {
+        default: 'md',
+        _dark: 'dark-lg',
+      },
+    },
   },
-}
+})

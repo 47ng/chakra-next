@@ -1,7 +1,9 @@
+import { Router, useRouter } from 'next/router'
 import React from 'react'
-import { useRouter } from 'next/router'
 
-export interface RedirectProps {
+type TransitionOptions = Parameters<Router['push']>[2]
+
+export type RedirectProps = Partial<TransitionOptions> & {
   to: string
   as?: string
   replace?: boolean
@@ -13,13 +15,14 @@ export const Redirect: React.FC<RedirectProps> = ({
   as = to,
   replace = false,
   external = false,
+  children = null,
+  ...transitionOptions
 }) => {
   const router = useRouter()
-
   React.useEffect(() => {
     if (external) {
       // Support redirection to external URLs:
-      // https://err.sh/zeit/next.js/invalid-href-passed
+      // https://err.sh/vercel/next.js/invalid-href-passed
       if (replace) {
         window.location.replace(as)
       } else {
@@ -27,12 +30,11 @@ export const Redirect: React.FC<RedirectProps> = ({
       }
     } else {
       if (replace) {
-        router.replace(to, as)
+        router.replace(to, as, transitionOptions)
       } else {
-        router.push(to, as)
+        router.push(to, as, transitionOptions)
       }
     }
   }, [])
-
-  return null
+  return children as any
 }
