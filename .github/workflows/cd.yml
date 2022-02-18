@@ -31,7 +31,7 @@ jobs:
 
       # Continuous Delivery Pipeline --
 
-      - uses: codfish/semantic-release-action@e062b24edc9c1a2c4bb8b1f5cc914f3387c00458
+      - uses: docker://ghcr.io/codfish/semantic-release-action@sha256:16ab6c16b1bff6bebdbcc6cfc07dfafff49d23c6818490500b8edb3babfff29e
         name: Semantic Release
         id: semantic
         env:
