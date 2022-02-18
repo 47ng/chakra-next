@@ -1,5 +1,6 @@
 .env
 .github/
+.husky/
 .next/
 .swcrc
 .vscode/
