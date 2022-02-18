@@ -3,9 +3,12 @@ import {
   Button,
   ButtonProps,
   chakra,
+  IconButton,
+  IconButtonProps,
   Link as ChakraLink,
   LinkProps as ChakraLinkProps,
 } from '@chakra-ui/react'
+import type { Merge } from '@chakra-ui/utils'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 import { NextRouter, useRouter } from 'next/router'
 import type React from 'react'
@@ -107,6 +110,28 @@ export const ButtonRouteLink: React.FC<ButtonRouteLinkProps> = ({
     </Button>
   </NextLink>
 )
+
+// --
+
+export interface IconButtonRouteLinkProps
+  extends Merge<RouteLinkProps, IconButtonProps> {}
+
+export const IconButtonRouteLink: React.FC<IconButtonRouteLinkProps> = ({
+  ...props
+}) => {
+  return <IconButton as={RouteLink} {...props} />
+}
+
+// --
+
+export interface IconButtonOutgoingLinkProps
+  extends Merge<Omit<OutgoingLinkProps, 'externalIcon'>, IconButtonProps> {}
+
+export const IconButtonOutgoingLink: React.FC<IconButtonOutgoingLinkProps> = ({
+  ...props
+}) => {
+  return <IconButton as={OutgoingLink} {...props} />
+}
 
 // --
 
