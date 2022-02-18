@@ -1,9 +1,9 @@
-import React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
 import { render, RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from '@chakra-ui/core'
+import React from 'react'
 
 const Providers: React.FC = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>
+  return <ChakraProvider>{children}</ChakraProvider>
 }
 
 const customRender = (
@@ -13,6 +13,5 @@ const customRender = (
 
 // re-export everything
 export * from '@testing-library/react'
-
 // override render method
 export { customRender as render }

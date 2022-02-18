@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import { render } from '../../test/render'
+import { Redirect } from './redirect'
 
 const fakeRouter = {
   replace: jest.fn(),
@@ -9,7 +10,6 @@ const fakeRouter = {
 jest.mock('next/router', () => ({
   useRouter: () => fakeRouter,
 }))
-import { Redirect } from '../index'
 
 describe('Redirect', () => {
   test('push', () => {

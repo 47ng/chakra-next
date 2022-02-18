@@ -1,7 +1,7 @@
-import React from 'react'
-import { render, getNodeText } from '../../test/render'
 import '@testing-library/jest-dom/extend-expect'
-import { NoSSR } from '../index'
+import React from 'react'
+import { getNodeText, render } from '../../test/render'
+import { NoSSR } from './no-ssr'
 
 describe('NoSSR', () => {
   test('Empty', () => {

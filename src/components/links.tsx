@@ -1,28 +1,44 @@
-import React from 'react'
-import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import { useRouter, NextRouter } from 'next/router'
-import { PseudoBoxProps } from '@chakra-ui/core/dist/PseudoBox'
-import Button, { ButtonProps } from '@chakra-ui/core/dist/Button'
-import Icon from '@chakra-ui/core/dist/Icon'
-import ChakraLink, {
+import {
+  BoxProps,
+  Button,
+  ButtonProps,
+  chakra,
+  Link as ChakraLink,
   LinkProps as ChakraLinkProps,
-} from '@chakra-ui/core/dist/Link'
+} from '@chakra-ui/react'
+import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+import { NextRouter, useRouter } from 'next/router'
+import type React from 'react'
 
 export interface RouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,
     Omit<ChakraLinkProps, 'as' | 'href'> {
-  as?: string
   to: string
+  as?: string
 }
 
 export const RouteLink: React.FC<RouteLinkProps> = ({
   to,
   as = to,
   children,
+  replace,
+  scroll,
+  shallow,
+  prefetch,
+  locale,
   ...props
 }) => {
   return (
-    <NextLink href={to} passHref as={as}>
+    <NextLink
+      passHref
+      href={to}
+      as={as}
+      replace={replace}
+      scroll={scroll}
+      shallow={shallow}
+      prefetch={prefetch}
+      locale={locale}
+    >
       <ChakraLink {...props}>{children}</ChakraLink>
     </NextLink>
   )
@@ -31,25 +47,25 @@ export const RouteLink: React.FC<RouteLinkProps> = ({
 // --
 
 export interface OutgoingLinkProps extends ChakraLinkProps {
-  showExternalIcon?: boolean
+  externalIcon?: React.FC
 }
 
 export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
   children,
   isExternal = true,
-  showExternalIcon = false,
+  externalIcon = null,
   ...props
 }) => {
+  const Icon = externalIcon && chakra(externalIcon)
   return (
     <ChakraLink isExternal={isExternal} {...props}>
       {children}
-      {showExternalIcon && (
+      {Icon && (
         <Icon
-          name="external-link"
-          mx="2px"
-          aria-label="(external link)"
-          mt="-0.25em"
+          display="inline-block"
+          mx="0.2em"
           fontSize="0.8em"
+          aria-label="(external link)"
         />
       )}
     </ChakraLink>
@@ -60,16 +76,32 @@ export const OutgoingLink: React.FC<OutgoingLinkProps> = ({
 
 export interface ButtonRouteLinkProps
   extends Omit<NextLinkProps, 'as' | 'href'>,
-    ButtonProps {
+    Omit<ButtonProps, 'as'> {
   to: string
+  as?: string
 }
 
 export const ButtonRouteLink: React.FC<ButtonRouteLinkProps> = ({
   to,
+  as = to,
+  replace,
+  scroll,
+  shallow,
+  prefetch,
+  locale,
   children,
   ...props
 }) => (
-  <NextLink href={to} passHref>
+  <NextLink
+    passHref
+    href={to}
+    as={as}
+    replace={replace}
+    scroll={scroll}
+    shallow={shallow}
+    prefetch={prefetch}
+    locale={locale}
+  >
     <Button as="a" {...props}>
       {children}
     </Button>
@@ -97,7 +129,7 @@ export const navLinkMatch: NavLinkActivePredicates = {
 }
 
 export interface NavLinkProps extends RouteLinkProps {
-  active?: Omit<Partial<PseudoBoxProps>, 'as'>
+  active?: Omit<Partial<BoxProps>, 'as'>
   shouldBeActive?: (args: ShouldBeActiveArgs) => boolean
 }
 
@@ -111,7 +143,6 @@ export const NavLink: React.FC<NavLinkProps> = ({
   ...props
 }) => {
   const router = useRouter()
-  router.query
   const active = shouldBeActive({ to, as, router })
   return (
     <RouteLink

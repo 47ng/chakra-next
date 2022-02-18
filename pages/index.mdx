@@ -1,11 +1,48 @@
 import { useRouter } from 'next/router'
-import { Box, Stack, Text, Code, Button } from '@chakra-ui/core'
-import { Container, StackCard } from '../src'
+import {
+  Box,
+  Stack,
+  Text,
+  Divider,
+  Code,
+  Button,
+  Container,
+} from '@chakra-ui/react'
+import { cardProps, Card, OutgoingLink } from '../'
+import { FiExternalLink } from 'react-icons/fi'
 
 export default ({ children }) => <Container my={8}>{children}</Container>
 
-Foo
+<Text>Normal text</Text>
+<Text color="text.dim">Dimmed text</Text>
+<Text color="text.dimmer">Dimmer text</Text>
+<Text color="text.dimmest">Dimmest text</Text>
 
-<StackCard>
-  <Text>Bar</Text>
-</StackCard>
+<Card my={8}>
+  <Text>Normal text</Text>
+  <Text color="text.dim">Dimmed text</Text>
+  <Text color="text.dimmer">Dimmer text</Text>
+  <Text color="text.dimmest">Dimmest text</Text>
+</Card>
+
+<Stack {...cardProps} my={8} p={2} rounded="xl">
+  <Box p={4} bg="body" shadow="inner" rounded="md">
+    Punch a hole through the card with body color background
+  </Box>
+</Stack>
+
+<Card px={0} my={8}>
+  <Box px={4} pb={4}>
+    <Text>Cards can reset their padding</Text>
+  </Box>
+  <Divider />
+  <Box px={4} pt={4}>
+    <Text>So that a full width divider can be used</Text>
+  </Box>
+</Card>
+
+<Card>
+  <OutgoingLink href="https://github.com" externalIcon={FiExternalLink}>
+    <span>GitHub</span>
+  </OutgoingLink>
+</Card>
